@@ -1,0 +1,6 @@
+# In _config.yml
+title: DSDL quantitative working practices
+author: DSDL
+copyright: "2024"
+logo: DSDL_rgb_logo.png
+exclude_patterns: [.venv]

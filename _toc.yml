@@ -1,0 +1,9 @@
+# In _toc.yml
+format: jb-book
+root: intro
+chapters:
+- file: ide
+- file: git
+- file: workflows
+- file: protocols
+- file: outputs

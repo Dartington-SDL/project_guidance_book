@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Using Git and GitHub: Setup and basic commands for MacOS &#8212; DSDL quantitative working practices</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'git';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Collaborative quantitative project workflows" href="workflows.html" />
+    <link rel="prev" title="IDE’s (interactive development environments)" href="ide.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/DSDL_rgb_logo.png" class="logo__image only-light" alt="DSDL quantitative working practices - Home"/>
+    <script>document.write(`<img src="_static/DSDL_rgb_logo.png" class="logo__image only-dark" alt="DSDL quantitative working practices - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Quantitative project working practices information and guidance
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ide.html">IDE’s (interactive development environments)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using Git and GitHub: Setup and basic commands for MacOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Collaborative quantitative project workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocols.html">Quantiative project protocol design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Quantiative project outputs and dissemination</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/git.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using Git and GitHub: Setup and basic commands for MacOS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-install-and-github-registration">Git install and GitHub registration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-git-is-installed-on-your-computer">Check if git is installed on your computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-a-git-repository-folder">Setup a git repository folder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-a-github-account">Setup a GitHub account</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-your-computer-to-your-github-account-using-ssh">Linking your computer to your GitHub account using SSH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-an-ssh-key-pair">Generate an SSH key pair</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-ssh-private-key-to-your-local-ssh-agent">Add the SSH private key to your local SSH-agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-the-public-key-to-your-github-account">Adding the public key to your GitHub account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-ssh-connection">Test your SSH connection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-repositories-the-basics">Working with repositories - The basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-repository-clone">Initial repository clone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-branch-and-switch-to-working-on-it">Create a new branch and switch to working on it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#committing-changes-to-the-main-github-repo">Committing changes to the main GitHub repo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-pull-request">Create a pull request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-your-local-repo-with-changes-from-the-remote-repo">Update your local repo with changes from the remote repo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="using-git-and-github-setup-and-basic-commands-for-macos">
+<h1>Using Git and GitHub: Setup and basic commands for MacOS<a class="headerlink" href="#using-git-and-github-setup-and-basic-commands-for-macos" title="Permalink to this heading">#</a></h1>
+<section id="git-install-and-github-registration">
+<h2>Git install and GitHub registration<a class="headerlink" href="#git-install-and-github-registration" title="Permalink to this heading">#</a></h2>
+<section id="check-if-git-is-installed-on-your-computer">
+<h3>Check if git is installed on your computer<a class="headerlink" href="#check-if-git-is-installed-on-your-computer" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open a terminal and enter: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">version</span></code></p></li>
+<li><p>If Git is present move on</p></li>
+<li><p>Otherwise go to git developer site and download latest stable version of git for Mac OS</p></li>
+</ol>
+</section>
+<section id="setup-a-git-repository-folder">
+<h3>Setup a git repository folder<a class="headerlink" href="#setup-a-git-repository-folder" title="Permalink to this heading">#</a></h3>
+<p>Setup a ‘git’ folder on your computer. This is where you will store all git repositories (repos). I have set mine up on my personal DSDL OneDrive. This way my repositories are always backed-up.</p>
+</section>
+<section id="setup-a-github-account">
+<h3>Setup a GitHub account<a class="headerlink" href="#setup-a-github-account" title="Permalink to this heading">#</a></h3>
+<p>Go to <a class="github reference external" href="https://github.com">github</a> and register for a free account</p>
+</section>
+</section>
+<section id="linking-your-computer-to-your-github-account-using-ssh">
+<h2>Linking your computer to your GitHub account using SSH<a class="headerlink" href="#linking-your-computer-to-your-github-account-using-ssh" title="Permalink to this heading">#</a></h2>
+<p>Now you need to generate an SSH key and add this to your GitHub account. SSH keys are encrypted passkeys that allow secure file transfers and access through the terminal without the need to constantly enter passwords.</p>
+<section id="generate-an-ssh-key-pair">
+<h3>Generate an SSH key pair<a class="headerlink" href="#generate-an-ssh-key-pair" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open a terminal</p></li>
+<li><p>Paste or type the following into the terminal entering the email that you have registered your GitHub account with
+<code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">ed25519</span> <span class="pre">-C</span> <span class="pre">&quot;your_email&#64;example.com&quot;</span></code></p></li>
+<li><p>When prompted to enter a file into which to save the key simply press enter to accept the default location</p></li>
+<li><p>You will then be prompted to enter a passphrase (optional) for this key. Either enter a passphrase or press enter to not create one.</p></li>
+</ol>
+</section>
+<section id="add-the-ssh-private-key-to-your-local-ssh-agent">
+<h3>Add the SSH private key to your local SSH-agent<a class="headerlink" href="#add-the-ssh-private-key-to-your-local-ssh-agent" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Start the SSH agent in the terminal<br />
+<code class="docutils literal notranslate"><span class="pre">eval</span> <span class="pre">&quot;$(ssh-agent</span> <span class="pre">-s)&quot;</span></code></p></li>
+<li><p>If you’re using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.</p></li>
+<li><p>First, check to see if your ~/.ssh/config file exists in the default location.</p></li>
+<li><p>open ~/.ssh/config</p></li>
+<li><p>If the file doesn’t exist, create the file.<br />
+<code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">~/.ssh/config</span></code></p></li>
+<li><p>Open your ~/.ssh/config file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Host</span> <span class="pre">github.com</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">AddKeysToAgent</span> <span class="pre">yes</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">UseKeychain</span> <span class="pre">yes</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">IdentityFile</span> <span class="pre">~/.ssh/id_ed25519</span></code></p></li>
+<li><p>Add your SSH private key to the ssh-agent and store your passphrase in the keychain. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh-add</span> <span class="pre">--apple-use-keychain</span> <span class="pre">~/.ssh/id_ed25519</span></code></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">--apple-use-keychain</span></code> option stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the <code class="docutils literal notranslate"><span class="pre">--apple-use-keychain</span></code> option.</p></li>
+</ol>
+</section>
+<section id="adding-the-public-key-to-your-github-account">
+<h3>Adding the public key to your GitHub account<a class="headerlink" href="#adding-the-public-key-to-your-github-account" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Copy the SSH public key to your clipboard.<br />
+<code class="docutils literal notranslate"><span class="pre">pbcopy</span> <span class="pre">&lt;</span> <span class="pre">~/.ssh/id_ed25519.pub</span></code></p></li>
+<li><p>Go to <a class="github reference external" href="https://github.com">github</a> and sign in to your account</p></li>
+<li><p>In the upper-right corner of any page, click your profile photo, then click Settings.</p></li>
+<li><p>In the “Access” section of the sidebar, click SSH and GPG keys.</p></li>
+<li><p>Click New SSH key or Add SSH key.</p></li>
+<li><p>In the “Title” field, add a descriptive label for the new key. For example, if you’re using a personal laptop, you might call this key “Personal laptop”.</p></li>
+<li><p>Select the type of key, either authentication or signing.</p></li>
+<li><p>In the “Key” field, paste your public key.</p></li>
+<li><p>Click Add SSH key.</p></li>
+</ol>
+</section>
+<section id="test-your-ssh-connection">
+<h3>Test your SSH connection<a class="headerlink" href="#test-your-ssh-connection" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open a Terminal</p></li>
+<li><p>Enter the following:<br />
+<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-T</span> <span class="pre">git&#64;github.com</span></code></p></li>
+<li><p>You may see a warning like this:<br />
+<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">The</span> <span class="pre">authenticity</span> <span class="pre">of</span> <span class="pre">host</span> <span class="pre">'github.com</span> <span class="pre">(IP</span> <span class="pre">ADDRESS)'</span> <span class="pre">can't</span> <span class="pre">be</span> <span class="pre">established.</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">ED25519</span> <span class="pre">key</span> <span class="pre">fingerprint</span> <span class="pre">is</span> <span class="pre">SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">Are</span> <span class="pre">you</span> <span class="pre">sure</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">continue</span> <span class="pre">connecting</span> <span class="pre">(yes/no)?</span></code></p></li>
+<li><p>Verify that the fingerprint in the message you see matches GitHub’s public key fingerprint. If it does, then type yes:<br />
+<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">Hi</span> <span class="pre">USERNAME!</span> <span class="pre">You've</span> <span class="pre">successfully</span> <span class="pre">authenticated,</span> <span class="pre">but</span> <span class="pre">GitHub</span> <span class="pre">does</span> <span class="pre">not</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">provide</span> <span class="pre">shell</span> <span class="pre">access.</span></code></p></li>
+<li><p>Verify that the resulting message contains your username</p></li>
+</ol>
+</section>
+</section>
+<section id="working-with-repositories-the-basics">
+<h2>Working with repositories - The basics<a class="headerlink" href="#working-with-repositories-the-basics" title="Permalink to this heading">#</a></h2>
+<section id="initial-repository-clone">
+<h3>Initial repository clone<a class="headerlink" href="#initial-repository-clone" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>In the terminal navigate to your git folder. The command to change directory is cd for example I use:<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/’OneDrive</span> <span class="pre">–</span> <span class="pre">Warren</span> <span class="pre">House</span> <span class="pre">Group’/DSDL/git</span></code></p></li>
+<li><p>Note that the file path starts with ~ (tilde) which indicates to the computer that you want to start at the top level of the users file structure.</p></li>
+<li><p>Also not that any folder or file names that have spaces in are enclosed in an apostrophe. Best practice is to always use an _ (underscore) rather than a space in any folder or file name to negate this issue</p></li>
+<li><p>You can also navigate in Finder to the location of your git folder, right click and select ‘New terminal at folder’. This will open a new terminal with this folder already selected.</p></li>
+<li><p>Go to GitHub and go to the repository you would like to clone</p></li>
+<li><p>Click on the green ‘Code’ button and select SSH</p></li>
+<li><p>Copy the url</p></li>
+<li><p>Return to your terminal and enter the following:<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">‘paste</span> <span class="pre">url’</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:hsma-programme/2b_principles_of_foss_and_version_control.git</span></code></p></li>
+<li><p>You will now find a folder labelled with the repository name in your git folder which contains the repository files and folders</p></li>
+</ol>
+</section>
+<section id="create-a-new-branch-and-switch-to-working-on-it">
+<h3>Create a new branch and switch to working on it<a class="headerlink" href="#create-a-new-branch-and-switch-to-working-on-it" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Before beginning work on a new feature you want to create an new branch and then switch to working on that branch</p></li>
+<li><p>You can work on the main branch but this becomes confusing when working on a collaborative project. This should only be done when working on solo projects where you are the only contributor</p></li>
+<li><p>In the terminal navigate to the repository folder where you want to create a new branch<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/’OneDrive</span> <span class="pre">–</span> <span class="pre">Warren</span> <span class="pre">House</span> <span class="pre">Group’/DSDL/git/’repository_name’</span></code></p></li>
+<li><p>Check existing local branch names<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code></p></li>
+<li><p>Create a new branch<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">new_branch_name</span></code></p></li>
+<li><p>Switch to working on that branch<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">branch_name</span></code></p></li>
+<li><p>Any changes that you make to files or folders in the repository will be assigned to the branch</p></li>
+<li><p>When you commit changes from the branch they can be checked by the repository/project admin before being merged with the main project</p></li>
+</ol>
+</section>
+<section id="committing-changes-to-the-main-github-repo">
+<h3>Committing changes to the main GitHub repo<a class="headerlink" href="#committing-changes-to-the-main-github-repo" title="Permalink to this heading">#</a></h3>
+<p>When you have finished the current task assigned to you and want to upload your changes to the main project you commit your changes to the repository for review</p>
+<ol class="arabic simple">
+<li><p>In the terminal navigate to the repository folder with the changes you want to commit<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/’OneDrive</span> <span class="pre">–</span> <span class="pre">Warren</span> <span class="pre">House</span> <span class="pre">Group’/DSDL/git/’repository_name’</span></code></p></li>
+<li><p>Ensure that the branch you want to commit is currently active<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p></li>
+<li><p>Add the current branch and its changes ready to be committed</p>
+<ol class="arabic simple">
+<li><p>To add all changes<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">*</span></code></p></li>
+<li><p>To add changes from specific files<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">filenames</span></code></p></li>
+</ol>
+</li>
+<li><p>Check that the correct files have been added ready for upload<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p></li>
+<li><p>Commit these changes and add a message describing the changes that have been made/the task completed<br />
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code></p></li>
+<li><p>Push these changes to GitHub<br />
+<code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">branch_name</span></code></p></li>
+</ol>
+</section>
+<section id="create-a-pull-request">
+<h3>Create a pull request<a class="headerlink" href="#create-a-pull-request" title="Permalink to this heading">#</a></h3>
+<p>Once you have committed your changes to the main repository you need to create a pull request. The pull request will notify the repository administrator that there are changes ready to be reviewed for approval and merging with the main branch</p>
+<ol class="arabic simple">
+<li><p>Go to the main repository page on <a class="github reference external" href="https://github.com">github</a></p></li>
+<li><p>Click on the ‘Pull requests’ tab</p></li>
+<li><p>Click on the green ‘New pull request’</p></li>
+<li><p>Select the ‘base’ branch that you want to merge your changes with</p></li>
+<li><p>Select the ‘compare’ branch which is the branch with the changes you want to be reviewed</p></li>
+<li><p>Give your pull request a title and description</p></li>
+<li><p>After initializing a pull request, you’ll see a review page that shows a high-level overview of the changes between your branch (the compare branch) and the repository’s base branch. You can add a summary of the proposed changes, review the changes made by commits, add labels, milestones, and assignees, and &#64;mention individual contributors or teams.</p></li>
+</ol>
+</section>
+<section id="update-your-local-repo-with-changes-from-the-remote-repo">
+<h3>Update your local repo with changes from the remote repo<a class="headerlink" href="#update-your-local-repo-with-changes-from-the-remote-repo" title="Permalink to this heading">#</a></h3>
+<p>To update your local version of the repository with the latest version of the main branch you need to pull these changes.</p>
+<ol class="arabic simple">
+<li><p>In the terminal navigate to your git folder that you want to update<br />
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/’OneDrive</span> <span class="pre">–</span> <span class="pre">Warren</span> <span class="pre">House</span> <span class="pre">Group’/DSDL/git</span></code></p></li>
+<li><p>Fetch the changes from the remote repository and merge them with your local repo<br />
+<code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">pull</span> <span class="pre">‘repo_name’</span> <span class="pre">main</span></code></p></li>
+</ol>
+</section>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ide.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">IDE’s (interactive development environments)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="workflows.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Collaborative quantitative project workflows</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-install-and-github-registration">Git install and GitHub registration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-git-is-installed-on-your-computer">Check if git is installed on your computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-a-git-repository-folder">Setup a git repository folder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-a-github-account">Setup a GitHub account</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-your-computer-to-your-github-account-using-ssh">Linking your computer to your GitHub account using SSH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-an-ssh-key-pair">Generate an SSH key pair</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-ssh-private-key-to-your-local-ssh-agent">Add the SSH private key to your local SSH-agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-the-public-key-to-your-github-account">Adding the public key to your GitHub account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-ssh-connection">Test your SSH connection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-repositories-the-basics">Working with repositories - The basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-repository-clone">Initial repository clone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-branch-and-switch-to-working-on-it">Create a new branch and switch to working on it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#committing-changes-to-the-main-github-repo">Committing changes to the main GitHub repo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-pull-request">Create a pull request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-your-local-repo-with-changes-from-the-remote-repo">Update your local repo with changes from the remote repo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DSDL
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
