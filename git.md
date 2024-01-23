@@ -122,9 +122,9 @@ When you have finished the current task assigned to you and want to upload your 
 4.	Check that the correct files have been added ready for upload  
 `git status`
 5.	Commit these changes and add a message describing the changes that have been made/the task completed  
-`git commit`
+`git commit -m "add your commit message here"`
 6.	Push these changes to GitHub  
-`Git push -u origin branch_name`
+`git push -u origin branch_name`
 
 ### Create a pull request
 
@@ -141,9 +141,9 @@ Once you have committed your changes to the main repository you need to create a
 
 To update your local version of the repository with the latest version of the main branch you need to pull these changes.
 1.	In the terminal navigate to your git folder that you want to update  
-`cd ~/’OneDrive – Warren House Group’/DSDL/git`
-2.	Fetch the changes from the remote repository and merge them with your local repo  
-`Git pull ‘repo_name’ main`
+`cd ~/’OneDrive – Warren House Group’/DSDL/git/'repository_name'`
+2.	Fetch the changes from the main branch of the remote repository and merge them with your local repo  
+`git pull origin main`
 
 ## Resources
 
