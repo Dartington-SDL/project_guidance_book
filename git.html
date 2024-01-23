@@ -344,7 +344,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-repositories-the-basics">Working with repositories - The basics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-repository-clone">Initial repository clone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-repository">Creating a new repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-licence">Choosing a licence</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-readme-file">Creating a README file</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-an-existing-repository">Cloning an existing repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-branch-and-switch-to-working-on-it">Create a new branch and switch to working on it</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#committing-changes-to-the-main-github-repo">Committing changes to the main GitHub repo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-pull-request">Create a pull request</a></li>
@@ -382,6 +387,8 @@ document.write(`
 <section id="setup-a-github-account">
 <h3>Setup a GitHub account<a class="headerlink" href="#setup-a-github-account" title="Permalink to this heading">#</a></h3>
 <p>Go to <a class="github reference external" href="https://github.com">github</a> and register for a free account</p>
+<p>We have a central organisation space on GitHub for all DSDL projects <a class="github reference external" href="https://github.com/Dartington-SDL">Dartington-SDL</a></p>
+<p>Once you have setup your own personal GitHub account, message one of your project collaborators for an invitation to join the Dartington-SDL space or the Senior Data Specialist (currently Sean Manzi).</p>
 </section>
 </section>
 <section id="linking-your-computer-to-your-github-account-using-ssh">
@@ -451,8 +458,42 @@ document.write(`
 </section>
 <section id="working-with-repositories-the-basics">
 <h2>Working with repositories - The basics<a class="headerlink" href="#working-with-repositories-the-basics" title="Permalink to this heading">#</a></h2>
-<section id="initial-repository-clone">
-<h3>Initial repository clone<a class="headerlink" href="#initial-repository-clone" title="Permalink to this heading">#</a></h3>
+<section id="creating-a-new-repository">
+<h3>Creating a new repository<a class="headerlink" href="#creating-a-new-repository" title="Permalink to this heading">#</a></h3>
+<p>At the beginning of a new project, the first thing you will want to do is setup a new repository. The easiest way to create a new repository is through the GitHub website.</p>
+<ol class="arabic simple">
+<li><p>Go to <a class="github reference external" href="https://github.com/Dartington-SDL">Dartington-SDL</a> and click on repositories</p></li>
+<li><p>Click on the green ‘New repository’ button</p></li>
+<li><p>Enter a repository name. This should reflect the project that you are working on</p></li>
+<li><p>It is recommended to provide a brief description. This will likely comprise of the full name of the project you are working on and the type of project you are undertaking</p></li>
+<li><p>You next need to decide whether your repository will be public or private. As a general rule the repository should always be public. A respository should only be made prviate if:</p>
+<ul class="simple">
+<li><p>This has been requested by the client</p></li>
+<li><p>There is an NDA in place for the project</p></li>
+<li><p>The LabREC Ethics board has requested that the repository be made private for ethical or data governance reasons</p></li>
+</ul>
+</li>
+<li><p>Check the ‘Add README file’ box. All projects should have a README file, the suggested contents of the README file are discussed in more detail below</p></li>
+<li><p>Select a licence type from the dropdown list. More information on choosing a licence type is given in the ‘Choosing a licence’ section below</p></li>
+<li><p>Click the green ‘Create repository’ button</p></li>
+</ol>
+<section id="choosing-a-licence">
+<h4>Choosing a licence<a class="headerlink" href="#choosing-a-licence" title="Permalink to this heading">#</a></h4>
+<p>Many different licences exist for open source projects. It is important to choose a licence as this prevents anyone from claiming your work as their own.</p>
+<p>In most instances you will be using either the MIT or GNU licence types. For more information about licence types visit <a class="reference external" href="https://choosealicense.com/licenses/">https://choosealicense.com/licenses/</a>. The appropriate licence type for you project can be discussed with the Senior Data Specialist (Sean Manzi) and the Operations Director (Laurence Evans).</p>
+</section>
+<section id="creating-a-readme-file">
+<h4>Creating a README file<a class="headerlink" href="#creating-a-readme-file" title="Permalink to this heading">#</a></h4>
+<p>The README file is a markdown file that is displayed on GitHub at the top level of your repository. This file is most effectively used to provide an overview of the reason for the repository, it’s contents and it’s use. A suggested structure for the README file is:</p>
+<ul class="simple">
+<li><p>Brief project overview</p></li>
+<li><p>Structure of the repository</p></li>
+<li><p>Instructions on how to use the contents of the repository</p></li>
+</ul>
+</section>
+</section>
+<section id="cloning-an-existing-repository">
+<h3>Cloning an existing repository<a class="headerlink" href="#cloning-an-existing-repository" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>In the terminal navigate to your git folder. The command to change directory is cd for example I use:<br />
 <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/’OneDrive</span> <span class="pre">–</span> <span class="pre">Warren</span> <span class="pre">House</span> <span class="pre">Group’/DSDL/git</span></code></p></li>
@@ -616,7 +657,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-repositories-the-basics">Working with repositories - The basics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-repository-clone">Initial repository clone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-repository">Creating a new repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-licence">Choosing a licence</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-readme-file">Creating a README file</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-an-existing-repository">Cloning an existing repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-branch-and-switch-to-working-on-it">Create a new branch and switch to working on it</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#committing-changes-to-the-main-github-repo">Committing changes to the main GitHub repo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-pull-request">Create a pull request</a></li>

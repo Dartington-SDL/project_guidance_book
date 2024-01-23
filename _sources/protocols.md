@@ -38,7 +38,17 @@ This section will contain information including but not limited to:
 
 ### Modelling approach (if appropriate)
 
-
+The information required will vary by the modelling approach being employed. In general it should include as a minimum:
+- A brief description of the model to be built
+- The modelling method being used, the programming language being used and the packages being used with the implementation
+- A rationale for the modelling method being used
+- A table of the model input parameters and the data being used from the data description to create these parameters
+- A table of the expected model outputs. This should align with the data required in the analysis description
+- A description of the model build process including:
+    - Parameter creation
+    - The model development process
+    - The model validation process
+    - The collation of the model outputs
 
 ### Analysis description
 

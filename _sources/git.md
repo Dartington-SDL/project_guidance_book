@@ -17,6 +17,10 @@ Setup a ‘git’ folder on your computer. This is where you will store all git 
 
 Go to <https://github.com> and register for a free account
 
+We have a central organisation space on GitHub for all DSDL projects <https://github.com/Dartington-SDL>
+
+Once you have setup your own personal GitHub account, message one of your project collaborators for an invitation to join the Dartington-SDL space or the Senior Data Specialist (currently Sean Manzi).
+
 ## Linking your computer to your GitHub account using SSH
 
 Now you need to generate an SSH key and add this to your GitHub account. SSH keys are encrypted passkeys that allow secure file transfers and access through the terminal without the need to constantly enter passwords.
@@ -77,7 +81,36 @@ Now you need to generate an SSH key and add this to your GitHub account. SSH key
 
 ## Working with repositories - The basics
 
-### Initial repository clone
+### Creating a new repository
+
+At the beginning of a new project, the first thing you will want to do is setup a new repository. The easiest way to create a new repository is through the GitHub website.
+
+1. Go to <https://github.com/Dartington-SDL> and click on repositories
+2. Click on the green 'New repository' button
+3. Enter a repository name. This should reflect the project that you are working on
+4. It is recommended to provide a brief description. This will likely comprise of the full name of the project you are working on and the type of project you are undertaking
+5. You next need to decide whether your repository will be public or private. As a general rule the repository should always be public. A respository should only be made prviate if:
+    - This has been requested by the client
+    - There is an NDA in place for the project
+    - The LabREC Ethics board has requested that the repository be made private for ethical or data governance reasons
+6. Check the 'Add README file' box. All projects should have a README file, the suggested contents of the README file are discussed in more detail below
+7. Select a licence type from the dropdown list. More information on choosing a licence type is given in the 'Choosing a licence' section below
+8. Click the green 'Create repository' button
+
+#### Choosing a licence
+
+Many different licences exist for open source projects. It is important to choose a licence as this prevents anyone from claiming your work as their own.
+
+In most instances you will be using either the MIT or GNU licence types. For more information about licence types visit <https://choosealicense.com/licenses/>. The appropriate licence type for you project can be discussed with the Senior Data Specialist (Sean Manzi) and the Operations Director (Laurence Evans).
+
+#### Creating a README file
+
+The README file is a markdown file that is displayed on GitHub at the top level of your repository. This file is most effectively used to provide an overview of the reason for the repository, it's contents and it's use. A suggested structure for the README file is:
+- Brief project overview
+- Structure of the repository
+- Instructions on how to use the contents of the repository
+
+### Cloning an existing repository
 
 1.	In the terminal navigate to your git folder. The command to change directory is cd for example I use:  
 `cd ~/’OneDrive – Warren House Group’/DSDL/git`
