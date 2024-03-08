@@ -329,9 +329,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-report">Jupyter book report</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repository">GitHub repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repository-doi">GitHub repository DOI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-report">Jupyter book report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repository-archiving-doi-and-releases-using-zenodo">GitHub repository archiving, DOI and releases using Zenodo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-zenodo">Setup Zenodo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initalise-the-archiving-of-a-repository">Initalise the archiving of a repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-repository-release-to-produce-a-doi">Creating a new repository release to produce a DOI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retriving-the-doi-from-zenodo">Retriving the DOI from Zenodo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data">Open data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-print-publication">Pre-print publication</a></li>
 </ul>
@@ -347,17 +354,127 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="quantiative-project-outputs-and-dissemination">
 <h1>Quantiative project outputs and dissemination<a class="headerlink" href="#quantiative-project-outputs-and-dissemination" title="Permalink to this heading">#</a></h1>
-<section id="jupyter-book-report">
-<h2>Jupyter book report<a class="headerlink" href="#jupyter-book-report" title="Permalink to this heading">#</a></h2>
-</section>
 <section id="github-repository">
 <h2>GitHub repository<a class="headerlink" href="#github-repository" title="Permalink to this heading">#</a></h2>
+<p>All quantitative projects should have a GitHub repository which is setup at the beginning of the project and used as the collaborative platform for all project work. Information on the setup and use of <span class="xref myst">Git and GitHub is available here</span> and guidance on <span class="xref myst">collaborative working practices is available here</span></p>
+<p>Every project will have slightly different outputs but as a minimum you should try to have:</p>
+<ul class="simple">
+<li><p>A project report in the format of a Jupyter book</p></li>
+<li><p>A DOI associated with the GitHub repository</p></li>
+<li><p>An open dataset that would enable anyone to run the code</p></li>
+</ul>
+<p>In addition it would be useful to have:</p>
+<ul class="simple">
+<li><p>The project protocol - this could be included in the project report</p></li>
+<li><p>A pre-print publication and/or link to a journal publication</p></li>
+</ul>
 </section>
-<section id="github-repository-doi">
-<h2>GitHub repository DOI<a class="headerlink" href="#github-repository-doi" title="Permalink to this heading">#</a></h2>
+<section id="jupyter-book-report">
+<h2>Jupyter book report<a class="headerlink" href="#jupyter-book-report" title="Permalink to this heading">#</a></h2>
+<p>Jupyter books provide an excellent way to produce well formatted reports with interactive content that can be published online and as a PDF. This section provides a basic introduction to creating a Jupyter book and publishing it on GitHub. More information and tutorials are available on the <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Books website</a>.</p>
+<p>Start by creating a new folder for your Jupyter book</p>
+<p>A basic Jupyter book is structured using the follow files:</p>
+<ul class="simple">
+<li><p>a configuration file in YAML format called ‘_config.yml’</p></li>
+<li><p>a table of contents file in YAML format called ‘_toc.yml’</p></li>
+<li><p>content files in markdown format</p>
+<ul>
+<li><p>the front page will be called ‘<a class="reference external" href="http://intro.md">intro.md</a>’</p></li>
+<li><p>all subsequent pages can be named anything as ‘.md’ file types</p></li>
+</ul>
+</li>
+</ul>
+<p>The _config.yml file should contain as a minimum</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># In _config.yml</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DSDL quantitative working practices</span>
+<span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DSDL</span>
+<span class="nt">copyright</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024&quot;</span>
+<span class="nt">logo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DSDL_rgb_logo.png</span>
+<span class="nt">exclude_patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">.venv</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>The _toc.yml file is structured as</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># In _toc.yml</span>
+<span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jb-book</span>
+<span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">intro</span>
+<span class="nt">chapters</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ide</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflows</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protocols</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">outputs</span>
+</pre></div>
+</div>
+<p>The first line is a comment just stating the file name<br />
+<code class="docutils literal notranslate"><span class="pre">Format</span></code> states this is a Jupyter Book<br />
+<code class="docutils literal notranslate"><span class="pre">root</span></code> is the front page of the book<br />
+<code class="docutils literal notranslate"><span class="pre">chapters</span></code> are listed in order using the file names</p>
+<p>Markdown is a simple and intuitive language to use. An excellent guide is available at <a class="reference external" href="https://www.markdownguide.org/basic-syntax/">https://www.markdownguide.org/basic-syntax/</a></p>
+<p>When creating new files in VScode that are not python or ipython types, select ‘New text file’ then save the file and add the required file extension such as .md or .yml</p>
+<p>Once you have created your configuration, table of contents and content files you are ready to build your book. In the VScode terminal change your directory to the folder to where your book is located. If you are in your book directory you can go up a level using the command <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p>
+<p>The command to build your book is <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">mybookname/</span></code></p>
+<p>A _build file will be created in your book folder. You can now go to your file explorer and click through _build &gt; html &gt; index.html. The index.html file will open your book in your browser.</p>
+</section>
+<section id="github-repository-archiving-doi-and-releases-using-zenodo">
+<h2>GitHub repository archiving, DOI and releases using Zenodo<a class="headerlink" href="#github-repository-archiving-doi-and-releases-using-zenodo" title="Permalink to this heading">#</a></h2>
+<p>GitHub repositories are not inherently persistent or citable. To ensure that the correct version of a repository persists over time and is citable in reports and publications we need to archive specific releases of our repository and produce a DOI (data object identifier). The DOI is then citable as a persistent reference in any publications associated with the project.</p>
+<section id="setup-zenodo">
+<h3>Setup Zenodo<a class="headerlink" href="#setup-zenodo" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://zenodo.org/">https://zenodo.org/</a> navigate to the login page</p></li>
+<li><p>Choose to login with GitHub</p></li>
+<li><p>Review the access permissions and authorise Zenodo</p></li>
+</ol>
+</section>
+<section id="initalise-the-archiving-of-a-repository">
+<h3>Initalise the archiving of a repository<a class="headerlink" href="#initalise-the-archiving-of-a-repository" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to the Zenodo GitHub page within your account</p></li>
+<li><p>All of your public repositories should be visible. If they are not, click on Sync, then reload the page</p></li>
+<li><p>Toggle the button next to the repo you wish to archive to On</p></li>
+</ol>
+</section>
+<section id="creating-a-new-repository-release-to-produce-a-doi">
+<h3>Creating a new repository release to produce a DOI<a class="headerlink" href="#creating-a-new-repository-release-to-produce-a-doi" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go to the repository you are archiving on GitHub</p></li>
+<li><p>In the Code page of the repository on the right hand side there is a section called Releases</p></li>
+<li><p>Click on Create new release</p></li>
+<li><p>Click on Choose a tag and create a new tag. The tag should be formatted as ‘v1.0’. Releases should be incremented as ‘v1.1’ for minor changes and ‘v2.0’ for major changes</p></li>
+<li><p>Enter a title and description of the release. The title should briefly summarise the key changes in the new release. The description should list the changes made in the release</p></li>
+<li><p>Click the green Publish release button</p></li>
+</ol>
+</section>
+<section id="retriving-the-doi-from-zenodo">
+<h3>Retriving the DOI from Zenodo<a class="headerlink" href="#retriving-the-doi-from-zenodo" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go to the GitHub section in your Zenodo account</p></li>
+<li><p>You should now see a DOI badge next to the repo you have just produced the release for</p></li>
+<li><p>If the DOI badge is not visible, click the Sync button then reload the page and the badge should appear</p></li>
+<li><p>Double click on the badge and a window will open with various code options. Copy the markdown code</p></li>
+<li><p>Go to the Readme in your GitHub repo, edit it directly in the browser and paste the DOI badge markdown code which will look similar to</p></li>
+</ol>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>[<span class="nt">![DOI</span>](<span class="na">https://zenodo.org/badge/754072112.svg</span>)](https://zenodo.org/doi/10.5281/zenodo.10629600)
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>You will then be asked to commit these changes</p></li>
+<li><p>The badge will now appear in the repo Readme</p></li>
+</ol>
+</section>
+<section id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this heading">#</a></h3>
+<p>When you create a new release of your repository a new DOI will be generated in Zenodo. You will need to manually update the badge code in the repo Readme so it reflects the latest release</p>
+</section>
 </section>
 <section id="open-data">
 <h2>Open data<a class="headerlink" href="#open-data" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Dummy data</p></li>
+<li><p>Fully anonymised data</p></li>
+<li><p>Synthetic data</p></li>
+<li><p>Pseudonymised data</p></li>
+</ul>
 </section>
 <section id="pre-print-publication">
 <h2>Pre-print publication<a class="headerlink" href="#pre-print-publication" title="Permalink to this heading">#</a></h2>
@@ -419,9 +536,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-report">Jupyter book report</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repository">GitHub repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repository-doi">GitHub repository DOI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-report">Jupyter book report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repository-archiving-doi-and-releases-using-zenodo">GitHub repository archiving, DOI and releases using Zenodo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-zenodo">Setup Zenodo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initalise-the-archiving-of-a-repository">Initalise the archiving of a repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-repository-release-to-produce-a-doi">Creating a new repository release to produce a DOI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retriving-the-doi-from-zenodo">Retriving the DOI from Zenodo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data">Open data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-print-publication">Pre-print publication</a></li>
 </ul>
