@@ -9,7 +9,7 @@ This section will provide you with information on the recommended IDE's to use w
 
 VS Code is a robust IDE for working in Python. It has a wide variety of extensions that support python programming and integration with other languages and tools.
 
-#### Installtion
+#### Installation
 
 The easiest way to install VS Code is directly from the website <https://code.visualstudio.com/Download>
 
@@ -31,7 +31,7 @@ When you start using VS Code you will want to install some core extensions for w
     5. Start typing 'Python: Create Environment' and select this option
     6. From the dropdown select the environment type venv
     7. Select a Python interpreter version
-    8. You will see in the terminal that the current location is preceeded by (.venv)
+    8. You will see in the terminal that the current location is preceded by (.venv)
 - To initialise an existing virtual environment
     1. Open the project folder (likely a git repo you have cloned)
     2. Open a new terminal in VS Code by going to the tool bar at the top, clicking on 'Terminal', then selecting 'New Terminal' from the dropdown. This will open a new terminal at the bottom of the window
@@ -53,7 +53,7 @@ VS Code Python tutorial <https://code.visualstudio.com/docs/python/python-tutori
 
 ### R base and R Studio
 
-#### Installtion
+#### Installation
 
 To you R with R Studio, you need to first install R base then install R Studio. R Studio will then automatically locate R base if installed in this order.
 
@@ -62,7 +62,7 @@ To you R with R Studio, you need to first install R base then install R Studio. 
 
 #### Setup
 
-R Studio should work streight out of the box. It has a built in package manager function that allows you to easily install packages such as shiny, tidyverse, psych, dplyr, ggplot etc.
+R Studio should work straight out of the box. It has a built in package manager function that allows you to easily install packages such as shiny, tidyverse, psych, dplyr, ggplot etc.
 
 #### Basic usage
 

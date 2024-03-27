@@ -89,7 +89,7 @@ At the beginning of a new project, the first thing you will want to do is setup 
 2. Click on the green 'New repository' button
 3. Enter a repository name. This should reflect the project that you are working on
 4. It is recommended to provide a brief description. This will likely comprise of the full name of the project you are working on and the type of project you are undertaking
-5. You next need to decide whether your repository will be public or private. As a general rule the repository should always be public. A respository should only be made prviate if:
+5. You next need to decide whether your repository will be public or private. As a general rule the repository should always be public. A repository should only be made private if:
     - This has been requested by the client
     - There is an NDA in place for the project
     - The LabREC Ethics board has requested that the repository be made private for ethical or data governance reasons

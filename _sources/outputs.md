@@ -1,4 +1,4 @@
-# Quantiative project outputs and dissemination
+# Quantitative project outputs and dissemination
 
 ## GitHub repository
 All quantitative projects should have a GitHub repository which is setup at the beginning of the project and used as the collaborative platform for all project work. Information on the setup and use of [Git and GitHub is available here](../project_guidance_book/git.md) and guidance on [collaborative working practices is available here](../project_guidance_book/workflows.md)
@@ -90,7 +90,7 @@ GitHub repositories are not inherently persistent or citable. To ensure that the
 5. Enter a title and description of the release. The title should briefly summarise the key changes in the new release. The description should list the changes made in the release
 6. Click the green Publish release button
 
-### Retriving the DOI from Zenodo
+### Retrieving the DOI from Zenodo
 
 1. Go to the GitHub section in your Zenodo account
 2. You should now see a DOI badge next to the repo you have just produced the release for

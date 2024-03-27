@@ -1,4 +1,4 @@
-# Quantiative project protocol design
+# Quantitative project protocol design
 
 ## The importance of good protocol design
 
@@ -62,7 +62,7 @@ The analysis description should detail for each analysis to be performed:
 
 ### Outputs
 
-A list of outputs from the project should be provided. The outputs section of this document provides information on the minimum outputs recommended from a project and infomation on other 'good to have' outputs.
+A list of outputs from the project should be provided. The outputs section of this document provides information on the minimum outputs recommended from a project and information on other 'good to have' outputs.
 
 The minimum recommended outputs from a project are:
 - A project report produced as a Jupyter Book
